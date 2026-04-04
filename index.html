@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SJ-ON | 자율임무수행 드론 전문가 양성소</title>
+<script type="text/javascript" nonce="e75ce2efe7bd4d62a47a64be5c2" src="//local.adguard.org?ts=1775278044135&amp;type=content-script&amp;dmn=cmail.kakao.com&amp;url=https%3A%2F%2Fcmail.kakao.com%2Fv2%2Fmails%2F000000000000248%2Fattachments%2FMjoxLjI6OTM1OjQyMTAyOnRleHQvaHRtbDpiYXNlNjQ6aTRSX0dKT0JUREZEYjJOZzJTS3pUZw%2Fdownload%2FTalkFile_sj-on-notion.html&amp;app=brave.exe&amp;css=3&amp;js=1&amp;rel=1&amp;rji=1&amp;sbe=1"></script><script type="text/javascript" nonce="e75ce2efe7bd4d62a47a64be5c2" src="//local.adguard.org?ts=1775278044135&amp;name=AdGuard%20Extra&amp;type=user-script"></script><link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Noto+Sans+KR:wght@300;400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#050810;--bg2:#080d1a;--panel:#0b1120;--border:rgba(0,200,255,0.15);--cyan:#00c8ff;--cyan2:#00ffcc;--orange:#ff6b00;--white:#e8f0ff;--muted:#5a6a8a;--lv1:#f5c518;--lv2:#3b9eff;--lv3:#a855f7;--lv4:#ef4444;}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--white);font-family:'Noto Sans KR',sans-serif;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;z-index:0;background-image:linear-gradient(rgba(0,200,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,200,255,0.03) 1px,transparent 1px);background-size:40px 40px;pointer-events:none;}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:13px 48px;background:rgba(5,8,16,0.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);}
+.nav-logo{font-family:'Orbitron',sans-serif;font-size:1.15rem;font-weight:900;color:var(--cyan);letter-spacing:.15em;}
+.nav-logo span{color:var(--orange);}
+.nav-links{display:flex;gap:20px;list-style:none;}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:.72rem;letter-spacing:.04em;font-family:'Space Mono',monospace;transition:color .2s;}
+.nav-links a:hover{color:var(--cyan);}
+.nav-cta{background:var(--cyan);color:var(--bg);padding:6px 16px;border-radius:4px;font-family:'Orbitron',sans-serif;font-size:.66rem;font-weight:700;letter-spacing:.1em;text-decoration:none;}
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding:80px 48px 40px;}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 60% 60% at 72% 50%,rgba(0,200,255,0.08),transparent 60%),radial-gradient(ellipse 40% 40% at 18% 72%,rgba(255,107,0,0.06),transparent 60%);}
+.drone-visual{position:absolute;right:7%;top:50%;transform:translateY(-50%);width:390px;opacity:.88;animation:float 6s ease-in-out infinite;}
+@keyframes float{0%,100%{transform:translateY(-50%) rotate(-1deg);}50%{transform:translateY(calc(-50% - 18px)) rotate(1deg);}}
+.hero-content{position:relative;z-index:1;max-width:600px;}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;padding:5px 14px;border:1px solid var(--border);border-radius:100px;margin-bottom:20px;font-family:'Space Mono',monospace;font-size:.68rem;color:var(--cyan);letter-spacing:.08em;}
+.hero-badge::before{content:'●';color:var(--cyan2);font-size:.44rem;animation:blink 1.5s infinite;}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+.hero h1{font-family:'Orbitron',sans-serif;font-size:clamp(2.4rem,5vw,4rem);font-weight:900;line-height:1.08;letter-spacing:-.02em;}
+.hero h1 .grad{background:linear-gradient(90deg,var(--cyan),var(--cyan2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.hero-sub{margin-top:16px;font-size:.92rem;color:var(--muted);line-height:1.8;}
+.hero-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:22px;}
+.hero-tag{padding:4px 11px;border:1px solid var(--border);border-radius:4px;font-family:'Space Mono',monospace;font-size:.68rem;color:var(--muted);}
+.hero-cta{display:inline-flex;align-items:center;gap:10px;margin-top:32px;background:linear-gradient(135deg,var(--cyan),var(--cyan2));color:var(--bg);padding:12px 28px;border-radius:6px;font-family:'Orbitron',sans-serif;font-size:.76rem;font-weight:700;letter-spacing:.1em;text-decoration:none;box-shadow:0 0 28px rgba(0,200,255,.3);}
+.hero-stats{display:flex;gap:32px;margin-top:44px;padding-top:32px;border-top:1px solid var(--border);}
+.stat-num{font-family:'Orbitron',sans-serif;font-size:1.6rem;font-weight:900;color:var(--cyan);}
+.stat-label{font-size:.72rem;color:var(--muted);margin-top:3px;}
+section{position:relative;z-index:1;padding:80px 48px;}
+.container{max-width:1180px;margin:0 auto;}
+.section-tag{font-family:'Space Mono',monospace;font-size:.68rem;color:var(--orange);letter-spacing:.15em;text-transform:uppercase;margin-bottom:8px;}
+.section-title{font-family:'Orbitron',sans-serif;font-size:clamp(1.5rem,3vw,2.3rem);font-weight:900;line-height:1.15;margin-bottom:36px;}
+.section-title span{color:var(--cyan);}
+.bg-alt{background:var(--bg2);}
+.card{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:26px;transition:border-color .3s,transform .3s;}
+.card:hover{border-color:rgba(0,200,255,.38);transform:translateY(-3px);}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+.mission-icon{font-size:1.7rem;margin-bottom:12px;}
+.mission-h{font-family:'Orbitron',sans-serif;font-size:.8rem;font-weight:700;color:var(--cyan);letter-spacing:.08em;margin-bottom:9px;}
+.card-p{font-size:.85rem;color:var(--muted);line-height:1.7;}
+.level-track{display:grid;grid-template-columns:1fr 1fr;gap:36px;}
+.col-title{font-family:'Space Mono',monospace;font-size:.76rem;color:var(--orange);letter-spacing:.08em;padding-bottom:12px;border-bottom:1px solid var(--border);margin-bottom:18px;}
+.lv-card{display:flex;gap:14px;align-items:flex-start;padding:16px 18px;border-radius:10px;border:1px solid var(--border);margin-bottom:12px;background:var(--panel);}
+.lv-dot{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Orbitron',sans-serif;font-size:.58rem;font-weight:700;flex-shrink:0;}
+.d1{background:rgba(245,197,24,.1);color:var(--lv1);border:1px solid rgba(245,197,24,.3);}
+.d2{background:rgba(59,158,255,.1);color:var(--lv2);border:1px solid rgba(59,158,255,.3);}
+.d3{background:rgba(168,85,247,.1);color:var(--lv3);border:1px solid rgba(168,85,247,.3);}
+.d4{background:rgba(239,68,68,.1);color:var(--lv4);border:1px solid rgba(239,68,68,.3);}
+.lv-info h4{font-family:'Orbitron',sans-serif;font-size:.76rem;font-weight:700;margin-bottom:4px;}
+.lv-info p{font-size:.81rem;color:var(--muted);line-height:1.6;}
+.lv-task{display:inline-block;margin-top:6px;font-family:'Space Mono',monospace;font-size:.64rem;color:var(--cyan2);border:1px solid rgba(0,255,204,.18);padding:2px 8px;border-radius:3px;}
+.act-num{font-family:'Orbitron',sans-serif;font-size:2rem;font-weight:900;color:rgba(0,200,255,.1);line-height:1;margin-bottom:9px;}
+.act-h{font-size:.88rem;font-weight:700;margin-bottom:7px;}
+
+/* ====== NOTION EMBED 영역 ====== */
+.notion-section{background:var(--bg2);}
+.notion-embed-wrap{
+  border:1px solid var(--border);border-radius:12px;overflow:hidden;
+  background:var(--panel);
+}
+.notion-embed-header{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px 20px;border-bottom:1px solid var(--border);
+  background:rgba(0,200,255,.04);
+}
+.notion-embed-header span{font-family:'Space Mono',monospace;font-size:.72rem;color:var(--cyan);}
+.notion-embed-header a{font-family:'Space Mono',monospace;font-size:.68rem;color:var(--muted);text-decoration:none;}
+.notion-embed-header a:hover{color:var(--cyan);}
+.notion-iframe{width:100%;border:none;display:block;background:white;border-radius:0 0 12px 12px;}
+/* Notion 링크 미등록 시 placeholder */
+.notion-placeholder{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:48px;text-align:center;gap:12px;
+}
+.notion-placeholder .icon{font-size:2.4rem;}
+.notion-placeholder p{font-size:.85rem;color:var(--muted);}
+.notion-placeholder code{
+  font-family:'Space Mono',monospace;font-size:.72rem;
+  background:rgba(0,200,255,.08);color:var(--cyan);
+  padding:6px 12px;border-radius:4px;display:block;margin-top:4px;
+}
+/* ================================ */
+
+.check-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+.check-card{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:22px;}
+.check-card h3{font-family:'Space Mono',monospace;font-size:.76rem;color:var(--orange);margin-bottom:12px;letter-spacing:.05em;}
+.ci{display:flex;align-items:flex-start;gap:9px;font-size:.82rem;color:var(--muted);line-height:1.6;margin-bottom:7px;}
+.cb{width:15px;height:15px;border:1px solid rgba(0,200,255,.3);border-radius:3px;flex-shrink:0;margin-top:2px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s;}
+.comm-card h3{font-family:'Orbitron',sans-serif;font-size:.82rem;color:var(--cyan);margin-bottom:14px;letter-spacing:.06em;}
+.cm-item{display:flex;align-items:flex-start;gap:11px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.05);font-size:.84rem;color:var(--muted);}
+.cm-item:last-child{border-bottom:none;}
+.cm-ico{font-size:1rem;width:26px;text-align:center;flex-shrink:0;margin-top:1px;}
+.cm-item strong{color:var(--white);}
+.join-section{text-align:center;}
+.join-box{display:inline-block;padding:52px 68px;border:1px solid var(--border);border-radius:18px;background:var(--panel);position:relative;overflow:hidden;}
+.join-box::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 40% at 50% 0%,rgba(0,200,255,.07),transparent);}
+.join-box h2{font-family:'Orbitron',sans-serif;font-size:clamp(1.4rem,3vw,2.1rem);font-weight:900;margin-bottom:12px;position:relative;}
+.join-box>p{color:var(--muted);margin-bottom:28px;position:relative;font-size:.9rem;}
+.join-btns{display:flex;gap:13px;justify-content:center;position:relative;}
+.btn1{background:linear-gradient(135deg,var(--cyan),var(--cyan2));color:var(--bg);padding:12px 28px;border-radius:6px;font-family:'Orbitron',sans-serif;font-size:.74rem;font-weight:700;letter-spacing:.1em;text-decoration:none;}
+.btn2{border:1px solid var(--border);color:var(--white);padding:12px 28px;border-radius:6px;text-decoration:none;font-family:'Space Mono',monospace;font-size:.74rem;transition:border-color .3s;}
+.btn2:hover{border-color:var(--cyan);color:var(--cyan);}
+footer{padding:32px 48px;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;position:relative;z-index:1;}
+.footer-logo{font-family:'Orbitron',sans-serif;font-weight:900;font-size:.9rem;color:var(--cyan);letter-spacing:.15em;}
+.footer-logo span{color:var(--orange);}
+.footer-info{font-size:.74rem;color:var(--muted);text-align:center;line-height:1.7;}
+.footer-links{display:flex;gap:18px;}
+.footer-links a{font-size:.74rem;color:var(--muted);text-decoration:none;}
+.footer-links a:hover{color:var(--cyan);}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .6s,transform .6s;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+@media(max-width:900px){
+nav{padding:11px 18px;}.nav-links,.nav-cta{display:none;}
+.hero{padding:88px 18px 36px;}.drone-visual{display:none;}
+section{padding:52px 18px;}
+.grid3,.grid4,.level-track,.grid2,.check-grid{grid-template-columns:1fr;}
+.hero-stats{gap:18px;}footer{flex-direction:column;gap:12px;text-align:center;}
+.join-box{padding:32px 18px;}.join-btns{flex-direction:column;align-items:center;}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">SJ<span>-</span>ON</div>
+  <ul class="nav-links">
+    <li><a href="#mission">미션</a></li>
+    <li><a href="#levels">레벨</a></li>
+    <li><a href="#activities">활동</a></li>
+    <li><a href="#archive">아카이브</a></li>
+    <li><a href="#competition">대회</a></li>
+    <li><a href="#safety">안전</a></li>
+    <li><a href="#community">커뮤니티</a></li>
+  </ul>
+  <a href="#join" class="nav-cta">JOIN NOW</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="drone-visual">
+    <svg viewBox="0 0 420 300" xmlns="http://www.w3.org/2000/svg" fill="none" style="filter:drop-shadow(0 0 20px rgba(0,200,255,.4))">
+      <line x1="210" y1="150" x2="74" y2="76" stroke="#00c8ff" stroke-width="3" opacity=".6"/>
+      <line x1="210" y1="150" x2="346" y2="76" stroke="#00c8ff" stroke-width="3" opacity=".6"/>
+      <line x1="210" y1="150" x2="74" y2="224" stroke="#00c8ff" stroke-width="3" opacity=".6"/>
+      <line x1="210" y1="150" x2="346" y2="224" stroke="#00c8ff" stroke-width="3" opacity=".6"/>
+      <circle cx="74" cy="76" r="22" fill="#0b1120" stroke="#00c8ff" stroke-width="1.5"/>
+      <circle cx="74" cy="76" r="9" fill="rgba(0,200,255,.2)" stroke="#00c8ff"/>
+      <circle cx="346" cy="76" r="22" fill="#0b1120" stroke="#00c8ff" stroke-width="1.5"/>
+      <circle cx="346" cy="76" r="9" fill="rgba(0,200,255,.2)" stroke="#00c8ff"/>
+      <circle cx="74" cy="224" r="22" fill="#0b1120" stroke="#00c8ff" stroke-width="1.5"/>
+      <circle cx="74" cy="224" r="9" fill="rgba(0,200,255,.2)" stroke="#00c8ff"/>
+      <circle cx="346" cy="224" r="22" fill="#0b1120" stroke="#00c8ff" stroke-width="1.5"/>
+      <circle cx="346" cy="224" r="9" fill="rgba(0,200,255,.2)" stroke="#00c8ff"/>
+      <ellipse cx="74" cy="76" rx="40" ry="5" fill="rgba(0,200,255,.1)" stroke="#00c8ff" stroke-width=".5"><animateTransform attributeName="transform" type="rotate" from="0 74 76" to="360 74 76" dur=".35s" repeatCount="indefinite"/></ellipse>
+      <ellipse cx="346" cy="76" rx="40" ry="5" fill="rgba(0,200,255,.1)" stroke="#00c8ff" stroke-width=".5"><animateTransform attributeName="transform" type="rotate" from="360 346 76" to="0 346 76" dur=".35s" repeatCount="indefinite"/></ellipse>
+      <ellipse cx="74" cy="224" rx="40" ry="5" fill="rgba(0,200,255,.1)" stroke="#00c8ff" stroke-width=".5"><animateTransform attributeName="transform" type="rotate" from="360 74 224" to="0 74 224" dur=".35s" repeatCount="indefinite"/></ellipse>
+      <ellipse cx="346" cy="224" rx="40" ry="5" fill="rgba(0,200,255,.1)" stroke="#00c8ff" stroke-width=".5"><animateTransform attributeName="transform" type="rotate" from="0 346 224" to="360 346 224" dur=".35s" repeatCount="indefinite"/></ellipse>
+      <rect x="178" y="118" width="64" height="64" rx="10" fill="#0d1828" stroke="#00c8ff" stroke-width="1.5"/>
+      <rect x="188" y="128" width="44" height="44" rx="6" fill="rgba(0,200,255,.05)" stroke="rgba(0,200,255,.28)"/>
+      <circle cx="210" cy="148" r="11" fill="#050810" stroke="#00ffcc" stroke-width="1.5"/>
+      <circle cx="210" cy="148" r="5" fill="rgba(0,255,204,.12)" stroke="#00ffcc"/>
+      <circle cx="210" cy="148" r="2" fill="#00ffcc"/>
+      <circle cx="194" cy="132" r="3" fill="#ff6b00"><animate attributeName="opacity" values=".9;.2;.9" dur="1.2s" repeatCount="indefinite"/></circle>
+      <circle cx="226" cy="132" r="3" fill="#00c8ff"><animate attributeName="opacity" values=".2;.9;.2" dur="1.2s" repeatCount="indefinite"/></circle>
+      <circle cx="210" cy="150" r="58" stroke="rgba(0,200,255,.12)" stroke-width="1" stroke-dasharray="4 6"><animateTransform attributeName="transform" type="rotate" from="0 210 150" to="360 210 150" dur="8s" repeatCount="indefinite"/></circle>
+      <circle cx="210" cy="150" r="88" stroke="rgba(0,255,204,.07)" stroke-width="1" stroke-dasharray="2 10"><animateTransform attributeName="transform" type="rotate" from="360 210 150" to="0 210 150" dur="12s" repeatCount="indefinite"/></circle>
+    </svg>
+  </div>
+  <div class="hero-content reveal">
+    <div class="hero-badge">DRONE CLUB · SEJONG CYBER UNIV.</div>
+    <h1><span>자율임무수행</span><br><span class="grad">드론 전문가</span><br><span style="font-size:62%">양성소</span></h1>
+    <p class="hero-sub">단순 조종을 넘어 드론의 두뇌를 설계합니다.<br>GCS · ROS2 · AI 기반 지능형 자율 임무 수행 전문가를 양성합니다.</p>
+    <div class="hero-tags">
+      <span class="hero-tag">PX4 / ArduPilot</span>
+      <span class="hero-tag">ROS2 / Gazebo</span>
+      <span class="hero-tag">YOLO / OpenCV</span>
+      <span class="hero-tag">MAVLink / MAVSDK</span>
+      <span class="hero-tag">Jetson Nano</span>
+    </div>
+    <a href="#join" class="hero-cta">▶ 동아리 가입하기</a>
+    <div class="hero-stats">
+      <div><div class="stat-num">4</div><div class="stat-label">LEVEL SYSTEM</div></div>
+      <div><div class="stat-num">6+</div><div class="stat-label">2026 대회</div></div>
+      <div><div class="stat-num">2</div><div class="stat-label">PROJECT TRACKS</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- MISSION -->
+<section id="mission" class="bg-alt">
+  <div class="container">
+    <div class="section-tag">// 01. MISSION</div>
+    <h2 class="section-title">우리의 <span>미션</span></h2>
+    <div class="grid3">
+      <div class="card reveal"><div class="mission-icon">🚀</div><h3 class="mission-h">BEYOND FLYING</h3><p class="card-p">단순 조종을 넘어 드론의 두뇌를 직접 설계합니다. 하드웨어부터 펌웨어까지 처음부터 끝까지 내 손으로.</p></div>
+      <div class="card reveal"><div class="mission-icon">🎯</div><h3 class="mission-h">MISSION DRIVEN</h3><p class="card-p">GCS와 ROS2를 활용한 지능형 자율 임무 수행. 정찰·추적·자율 경로 비행까지 실전 미션 중심 학습.</p></div>
+      <div class="card reveal"><div class="mission-icon">📁</div><h3 class="mission-h">PORTFOLIO FIRST</h3><p class="card-p">대회 참여와 프로젝트 기획으로 검증된 커리어 실적. 레벨 인증서와 GitHub 기록으로 실력을 증명.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- LEVEL SYSTEM -->
+<section id="levels">
+  <div class="container">
+    <div class="section-tag">// 02. LEVEL SYSTEM</div>
+    <h2 class="section-title">4단계 전문가 <span>로드맵</span></h2>
+    <div class="level-track reveal">
+      <div>
+        <div class="col-title">⚙️ OPERATION TRACK</div>
+        <div class="lv-card"><div class="lv-dot d1">LV1</div><div class="lv-info"><h4>🟡 Beginner</h4><p>기체 직접 조립 및 수동 안정 비행 가능</p><span class="lv-task">→ 조립완료 사진 + 3분 안정비행 영상</span></div></div>
+        <div class="lv-card"><div class="lv-dot d2">LV2</div><div class="lv-info"><h4>🔵 Expert</h4><p>Mission Planner/QGC 자율 미션 설정 및 PID 튜닝</p><span class="lv-task">→ 3개 지점 자동비행 + 로그 비교표</span></div></div>
+        <div class="lv-card"><div class="lv-dot d3">LV3</div><div class="lv-info"><h4>🟣 Master</h4><p>커스텀 기체 설계·제작 및 전체 시스템 통합</p><span class="lv-task">→ 커스텀 기체 + 시스템 통합 시연</span></div></div>
+      </div>
+      <div>
+        <div class="col-title">💻 DEVELOPMENT TRACK</div>
+        <div class="lv-card"><div class="lv-dot d1">LV1</div><div class="lv-info"><h4>🟡 Intro</h4><p>Ubuntu, ROS2, PX4 툴체인 + Gazebo 환경 구축</p><span class="lv-task">→ Gazebo 이륙/이동 화면 녹화</span></div></div>
+        <div class="lv-card"><div class="lv-dot d2">LV2</div><div class="lv-info"><h4>🔵 Middle</h4><p>ROS2 노드 기반 센서 데이터 처리 및 제어 알고리즘</p><span class="lv-task">→ ROS2 제어 코드 + 시뮬 영상</span></div></div>
+        <div class="lv-card"><div class="lv-dot d3">LV3</div><div class="lv-info"><h4>🟣 Advanced</h4><p>알고리즘을 실제 기체에 탑재하여 실환경 자율비행</p><span class="lv-task">→ 실기체 자율비행 영상 + GitHub</span></div></div>
+        <div class="lv-card"><div class="lv-dot d4">LV4</div><div class="lv-info"><h4>🟤 Core</h4><p>PX4/ArduPilot 펌웨어 내부 로직 수정 및 모듈 개발</p><span class="lv-task">→ 펌웨어 모듈 PR + 기술 보고서</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACTIVITIES -->
+<section id="activities" class="bg-alt">
+  <div class="container">
+    <div class="section-tag">// 03. MAIN ACTIVITIES</div>
+    <h2 class="section-title">주요 <span>활동</span></h2>
+    <div class="grid4">
+      <div class="card reveal"><div class="act-num">01</div><h3 class="act-h">자체 기체 제작</h3><p class="card-p">설계부터 납땜, 세팅까지 내 손으로 직접 만드는 드론</p></div>
+      <div class="card reveal"><div class="act-num">02</div><h3 class="act-h">임무 수행 챌린지</h3><p class="card-p">경로 비행, 파라미터 튜닝 등 실전 비행 수행</p></div>
+      <div class="card reveal"><div class="act-num">03</div><h3 class="act-h">ROS2 테크 세미나</h3><p class="card-p">자율주행 드론의 핵심 ROS2 스터디 및 코드 리뷰</p></div>
+      <div class="card reveal"><div class="act-num">04</div><h3 class="act-h">대회 출전 &amp; 프로젝트</h3><p class="card-p">드론 대회 참가 및 산업체 연계 프로젝트 기획</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== NOTION EMBED 섹션들 ===== -->
+
+<!-- 드론 아카이브 (Notion DB) -->
+<section id="archive" class="notion-section">
+  <div class="container">
+    <div class="section-tag">// 04. DRONE ARCHIVE</div>
+    <h2 class="section-title reveal">드론 제작 <span>아카이브</span></h2>
+    <p class="reveal" style="color:var(--muted);font-size:.88rem;margin-bottom:24px;">동아리원이 제작한 기체를 Notion에서 직접 등록·수정합니다.</p>
+    <div class="notion-embed-wrap reveal">
+      <div class="notion-embed-header">
+        <span>📁 기체 아카이브 DB</span>
+        <a href="NOTION_ARCHIVE_URL" target="_blank">Notion에서 직접 편집 →</a>
+      </div>
+      <!-- ★ NOTION_ARCHIVE_URL 자리에 Notion 공유 링크 붙여넣기 -->
+      <div id="archive-embed">
+        <div class="notion-placeholder">
+          <div class="icon">🚁</div>
+          <p>아래 가이드를 따라 Notion 링크를 등록하면<br>여기에 기체 아카이브가 표시됩니다.</p>
+          <code>index.html 에서 NOTION_ARCHIVE_URL 교체</code>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 레벨업 도전 과제 -->
+<section id="levelup">
+  <div class="container">
+    <div class="section-tag">// 05. LEVEL UP BOARD</div>
+    <h2 class="section-title reveal">레벨업 도전 <span>현황</span></h2>
+    <div class="notion-embed-wrap reveal">
+      <div class="notion-embed-header">
+        <span>🆙 레벨업 과제 제출 보드</span>
+        <a href="NOTION_LEVELUP_URL" target="_blank">Notion에서 직접 편집 →</a>
+      </div>
+      <div id="levelup-embed">
+        <div class="notion-placeholder">
+          <div class="icon">🎯</div>
+          <p>학생들이 Notion에서 과제를 제출하면<br>여기에 진행 현황이 표시됩니다.</p>
+          <code>index.html 에서 NOTION_LEVELUP_URL 교체</code>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 학생 레벨 관리 -->
+<section class="notion-section">
+  <div class="container">
+    <div class="section-tag">// 06. STUDENT LEVELS</div>
+    <h2 class="section-title reveal">학생 레벨 <span>관리</span></h2>
+    <div class="notion-embed-wrap reveal">
+      <div class="notion-embed-header">
+        <span>👥 학생 레벨 테이블</span>
+        <a href="NOTION_STUDENTS_URL" target="_blank">Notion에서 직접 편집 →</a>
+      </div>
+      <div id="students-embed">
+        <div class="notion-placeholder">
+          <div class="icon">📊</div>
+          <p>학생 레벨·점수·승단일을 Notion에서 관리합니다.</p>
+          <code>index.html 에서 NOTION_STUDENTS_URL 교체</code>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 대회 일정 -->
+<section id="competition">
+  <div class="container">
+    <div class="section-tag">// 07. 2026 COMPETITION</div>
+    <h2 class="section-title reveal">국내 드론 대회 <span>일정</span></h2>
+    <div class="notion-embed-wrap reveal">
+      <div class="notion-embed-header">
+        <span>🏆 2026 대회 일정 DB</span>
+        <a href="NOTION_COMPETITION_URL" target="_blank">Notion에서 직접 편집 →</a>
+      </div>
+      <div id="competition-embed">
+        <div class="notion-placeholder">
+          <div class="icon">🏆</div>
+          <p>대회 일정을 Notion에서 추가·수정합니다.</p>
+          <code>index.html 에서 NOTION_COMPETITION_URL 교체</code>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 비행 로그북 -->
+<section class="notion-section">
+  <div class="container">
+    <div class="section-tag">// 08. FLIGHT LOGBOOK</div>
+    <h2 class="section-title reveal">비행 <span>로그북</span></h2>
+    <div class="notion-embed-wrap reveal">
+      <div class="notion-embed-header">
+        <span>📋 비행 기록 DB</span>
+        <a href="NOTION_LOGBOOK_URL" target="_blank">Notion에서 직접 편집 →</a>
+      </div>
+      <div id="logbook-embed">
+        <div class="notion-placeholder">
+          <div class="icon">✈️</div>
+          <p>비행 날짜·장소·시간을 Notion에서 기록합니다.</p>
+          <code>index.html 에서 NOTION_LOGBOOK_URL 교체</code>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== END NOTION SECTIONS ===== -->
+
+<!-- SAFETY -->
+<section id="safety" class="bg-alt">
+  <div class="container">
+    <div class="section-tag">// 09. SAFETY CHECKLIST</div>
+    <h2 class="section-title">이륙 전 안전 <span>체크리스트</span></h2>
+    <div class="check-grid reveal">
+      <div class="check-card">
+        <h3>🔧 기체 점검</h3>
+        <div class="ci"><div class="cb" onclick="tog(this)"></div>프로펠러 상태 및 장착 확인</div>
+        <div class="ci"><div class="cb" onclick="tog(this)"></div>모터 작동 상태 확인</div>
+        <div class="ci"><div class="cb" onclick="tog(this)"></div>배터리 충전 상태 및 연결 확인</div>
+        <div class="ci"><div class="cb" onclick="tog(this)"></div>프레임 및 랜딩 기어 손상 여부 확인</div>
+        <div class="ci"><div class="cb" onclick="tog(this)"></div>GPS 및 센서 캘리브레이션 확인</div>
+      </div>
+      <div class="check-card">
+        <h3>🎮 조종 장비 점검</h3>
+        <div class="ci"><div class="cb" onclick="tog(this)"></div>조종기 배터리 확인</div>
+        <div class="ci"><div class="cb" onclick="tog(this)"></div>조종기-기체 간 연결 상태 확인</div>
+        <div class="ci"><div class="cb" onclick="tog(this)"></div>FPV 화면 또는 모니터 작동 확인</div>
+      </div>
+      <div class="check-card">
+        <h3>🌤️ 환경 &amp; 비상 대비</h3>
+        <div class="ci"><div class="cb" onclick="tog(this)"></div>날씨 상태 확인 (풍속, 강수 여부)</div>
+        <div class="ci"><div class="cb" onclick="tog(this)"></div>비행 구역 안전 확인</div>
+        <div class="ci"><div class="cb" onclick="tog(this)"></div>비행 허가 및 신고 완료 확인</div>
+        <div class="ci"><div class="cb" onclick="tog(this)"></div>RTH (Return to Home) 설정 확인</div>
+        <div class="ci"><div class="cb" onclick="tog(this)"></div>소화기 및 응급 키트 준비</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMMUNITY -->
+<section id="community">
+  <div class="container">
+    <div class="section-tag">// 10. COMMUNITY</div>
+    <h2 class="section-title">팀 빌딩 &amp; <span>네트워킹</span></h2>
+    <div class="grid2 reveal">
+      <div class="card comm-card">
+        <h3>📍 정기 모임 장소</h3>
+        <div class="cm-item"><span class="cm-ico">🏫</span><div><strong>세종사이버대학교 무방관</strong><br><small>격주 토요일 오전 10시 · 서울시 광진구</small></div></div>
+        <div class="cm-item"><span class="cm-ico">🚁</span><div><strong>광나루 드론 공원</strong><br><small>매달 1~2번 · 일정 조율 필요</small></div></div>
+      </div>
+      <div class="card comm-card">
+        <h3>💬 온라인 커뮤니티</h3>
+        <div class="cm-item"><span class="cm-ico">💛</span><div><strong>SJ-ON 카카오톡 오픈채팅</strong><br><small>실시간 정보 공유 및 팀 모집</small></div></div>
+        <div class="cm-item"><span class="cm-ico">🎮</span><div><strong>디스코드 서버</strong><br><small>기술 토론 및 프로젝트 협업</small></div></div>
+        <div class="cm-item"><span class="cm-ico">📝</span><div><strong>네이버 카페</strong><br><small>대회 정보 및 후기 공유</small></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- JOIN -->
+<section id="join" class="join-section bg-alt">
+  <div class="container">
+    <div class="join-box reveal">
+      <h2>지금 SJ-ON에 <span style="color:var(--cyan)">합류하세요</span></h2>
+      <p>자율임무수행 드론 전문가로 성장할 준비가 되셨나요?<br>레벨 1부터 시작해 실제 자율비행까지, 함께 만들어갑니다.</p>
+      <div class="join-btns">
+        <a href="KAKAO_OPENCHAT_URL" class="btn1">▶ 가입 신청하기</a>
+        <a href="#archive" class="btn2">드론 아카이브 보기</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">SJ<span>-</span>ON</div>
+  <div class="footer-info">드론 제작 및 운영 동아리 · 세종사이버대학교<br>세종사이버대학교 무방관 · 서울시 광진구</div>
+  <div class="footer-links">
+    <a href="KAKAO_URL">카카오톡</a>
+    <a href="DISCORD_URL">디스코드</a>
+    <a href="GITHUB_URL">GitHub</a>
+    <a href="NAVER_CAFE_URL">네이버 카페</a>
+  </div>
+</footer>
+
+<script>
+// Notion embed 자동 삽입
+// SETUP: 아래 URLs 딕셔너리에 Notion 공유 링크 붙여넣기
+const NOTION_URLS = {
+  'archive-embed':     'NOTION_ARCHIVE_URL',
+  'levelup-embed':     'NOTION_LEVELUP_URL',
+  'students-embed':    'NOTION_STUDENTS_URL',
+  'competition-embed': 'NOTION_COMPETITION_URL',
+  'logbook-embed':     'NOTION_LOGBOOK_URL',
+};
+const IFRAME_HEIGHTS = {
+  'archive-embed': 600,
+  'levelup-embed': 500,
+  'students-embed': 400,
+  'competition-embed': 400,
+  'logbook-embed': 350,
+};
+Object.entries(NOTION_URLS).forEach(([id, url]) => {
+  if (url && !url.startsWith('NOTION_')) {
+    const el = document.getElementById(id);
+    if (el) {
+      el.innerHTML = `<iframe src="${url}" class="notion-iframe" height="${IFRAME_HEIGHTS[id] || 500}" allowfullscreen></iframe>`;
+    }
+  }
+});
+
+function tog(el){
+  const on = el.dataset.on==='1';
+  el.dataset.on = on?'0':'1';
+  el.style.background = on?'':'rgba(0,200,255,.25)';
+  el.innerHTML = on?'':'<span style="color:#00c8ff;font-size:.65rem">✓</span>';
+}
+const obs = new IntersectionObserver(entries=>{
+  entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*60);obs.unobserve(e.target);}});
+},{threshold:.08});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
