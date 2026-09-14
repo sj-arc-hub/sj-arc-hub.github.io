@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="./support.js"></script>
+<script type="module" src="./hero-photo.js"></script>
 </head>
 <body>
 <x-dc>
@@ -34,6 +35,7 @@ input,select,textarea,button{font-family:inherit}
       <a href="SJ-ARC-Gallery.dc.html" style="padding:8px 12px;border-radius:8px;font-size:14px;font-weight:500;color:#9aa6b5;text-decoration:none" style-hover="color:#e9eef4;background:rgba(255,255,255,.05)">갤러리</a>
       <a href="SJ-ARC-Board.dc.html" style="padding:8px 12px;border-radius:8px;font-size:14px;font-weight:500;color:#9aa6b5;text-decoration:none" style-hover="color:#e9eef4;background:rgba(255,255,255,.05)">게시판</a>
       <a href="{{ joinUrl }}" target="_blank" rel="noopener" style="margin-left:10px;background:#68b858;color:#0f1a12;padding:9px 16px;border-radius:8px;font-weight:700;font-size:14px;text-decoration:none" style-hover="background:#7ac66a">가입 신청</a>
+      <a href="admin.html" style="padding:8px 12px;font-size:14px;color:#9aa6b5;text-decoration:none">관리자</a>
     </nav>
   </div>
 </header>
@@ -59,7 +61,7 @@ input,select,textarea,button{font-family:inherit}
     </div>
     <sc-if value="{{ showHeroPhoto }}" hint-placeholder-val="{{ true }}">
       <div style="aspect-ratio:4/3;min-height:260px;position:relative">
-        <image-slot id="home-hero" shape="rounded" radius="18" placeholder="대표 활동 사진을 여기에 드래그해서 넣어주세요"></image-slot>
+        <sjarc-hero></sjarc-hero>
       </div>
     </sc-if>
   </div>

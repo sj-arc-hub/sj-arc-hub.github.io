@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>홈페이지 관리 · SJ-ARC</title>
+  <link rel="stylesheet" href="./admin.css">
+  <script type="module" src="./admin.js"></script>
+</head>
+<body>
+  <header class="header"><a class="brand" href="./SJ-ARC-Home.dc.html"><img src="./assets/sjarc-mark.png" alt="">SJ-ARC</a><a href="./SJ-ARC-Home.dc.html">홈페이지로 돌아가기 →</a></header>
+  <main>
+    <p class="eyebrow">SJ-ARC · ADMIN</p>
+    <h1>홈페이지 관리</h1>
+    <p class="intro">Google 계정으로 로그인하고 동아리 활동과 홈페이지를 관리합니다.</p>
+    <div id="status" class="status" role="status" aria-live="polite">로그인 상태를 확인하고 있습니다.</div>
+
+    <section id="signed-out" class="panel" hidden>
+      <h2>Google 로그인</h2>
+      <p>회원 명단에 연결할 Google 계정을 사용해 주세요. 첫 로그인 후 운영진의 회원 승인이 필요합니다.</p>
+      <button id="login" type="button" class="primary">Google 계정으로 로그인</button>
+    </section>
+
+    <section id="account" class="account" hidden>
+      <div><strong id="account-name"></strong><span id="account-role" class="badge"></span></div>
+      <div class="actions"><button id="refresh" type="button">권한·사진 새로고침</button><button id="logout" type="button">로그아웃</button></div>
+    </section>
+
+    <section id="pending" class="panel" hidden>
+      <h2 id="member-heading">회원 승인을 기다리고 있습니다</h2>
+      <p id="member-description">운영진에게 회원 명단과 이 Google 계정의 연결·승인을 요청해 주세요.</p>
+      <div class="actions"><a href="./SJ-ARC-Board.dc.html">게시판·승급자료 →</a><a href="./SJ-ARC-Levels.dc.html">레벨 현황 →</a></div>
+    </section>
+
+    <section id="management" class="panel" hidden>
+      <h2>홈페이지 콘텐츠</h2>
+      <p>운영진 소개, 회원 명단, 갤러리, 게시글과 승급 심사를 관리합니다.</p>
+      <div class="actions"><a href="./manage.html">콘텐츠 관리 열기 →</a><a href="./SJ-ARC-Board.dc.html">게시판·승급자료 →</a></div>
+    </section>
+
+    <section id="editor" class="panel" hidden>
+      <div class="section-title"><div><h2>대표 활동 사진</h2><p>저장한 사진은 홈페이지 방문자 모두에게 공개됩니다.</p></div><span id="saved-at" class="meta"></span></div>
+      <div class="editor-grid">
+        <figure><div class="photo-frame"><img id="preview" alt="대표 활동 사진 미리보기" hidden><div id="photo-empty">등록된 대표 사진이 없습니다.</div></div><figcaption id="preview-label">현재 공개된 사진</figcaption></figure>
+        <form id="photo-form">
+          <label for="photo">사진 선택</label>
+          <input id="photo" name="photo" type="file" accept="image/jpeg,image/png,image/webp,image/avif">
+          <p class="hint">JPG · PNG · WebP · AVIF, 최대 15MB. 화면에 맞게 압축해 저장합니다.</p>
+          <label for="description">사진 설명</label>
+          <input id="description" name="description" type="text" maxlength="180" placeholder="예: 정기모임에서 제작한 기체의 첫 비행" required>
+          <p class="hint">사진을 볼 수 없는 방문자에게도 활동 내용을 전달합니다.</p>
+          <div class="actions"><button id="save" type="submit" class="primary" disabled>대표 사진으로 저장</button><button id="cancel" type="button" disabled>선택 취소</button></div>
+          <p id="save-status" class="hint" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+    <noscript><p class="status">이 페이지를 사용하려면 JavaScript를 활성화해 주세요.</p></noscript>
+  </main>
+  <footer>SJ-ARC · 세종사이버대학교 드론 제작·운영 동아리</footer>
+</body>
+</html>
