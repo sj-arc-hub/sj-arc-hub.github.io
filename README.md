@@ -26,3 +26,9 @@ SJ-ARC 동아리 공식 사이트 (GitHub Pages · sj-arc.org)
 - 공개된 승급자료와 첨부파일은 방문자도 읽을 수 있습니다. 작성 중인 자료와 내부 심사 의견은 제한합니다.
 - 승급 승인과 레벨 변경, 심사 스냅샷·감사 기록을 서버에서 함께 처리합니다.
 - `community-core.js`, `community.js`, `manage.js`, `community.css`를 공통으로 사용하며 추가 번들 빌드는 필요 없습니다.
+
+## 갤러리 동영상
+
+- 기존 프로젝트에서 `supabase/004-gallery-video.sql`을 한 번 실행하고 코드를 배포합니다. 기존 사진은 유지됩니다.
+- 앨범에서 MP4·WebM(파일당 50MB) 업로드 또는 YouTube 링크 추가 후 페이지 안에서 재생합니다.
+- 상세 설정과 파일 형식 안내는 `community-setup.md`의 갤러리 항목을 참고하세요.

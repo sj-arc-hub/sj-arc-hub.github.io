@@ -1,3 +1,4 @@
+import {mediaView} from './gallery-view.js';
 import {client,esc,result,rpc,auth,nav,message,errorText,photoUrl,external,options,field,area,select,empty,categories,albumCategories,statuses,levelLabel,task,modal,attachFile,downloadFile,fail} from './community-core.js';
 const page=document.body.dataset.page, view=document.getElementById('view'), params=new URLSearchParams(location.search);
 let account={},post=null,files=[],request=null,reviews=[];
@@ -28,17 +29,19 @@ async function gallery() {
     const album=await result(client.from('albums').select('*').eq('id',id).eq('published',true).single());
     const photos=await result(client.from('album_photos').select('*').eq('album_id',id).eq('active',true).order('sort_order').order('updated_at'));
     view.innerHTML=`<a href="./SJ-ARC-Gallery.dc.html">← 앨범 목록</a>`+heading(album.title,`${album.event_date} · ${album.category}`,manager('gallery'))+
-      `<p class="body-text">${esc(album.description)}</p>`+(photos.length?`<div class="grid">${photos.map(p=>`<figure class="card"><a href="${esc(photoUrl(p.path))}" target="_blank" rel="noopener"><img class="gallery-photo" loading="lazy" src="${esc(photoUrl(p.path))}" alt="${esc(p.caption)}"></a><figcaption class="photo-caption">${esc(p.caption)}</figcaption></figure>`).join('')}</div>`:empty('등록된 사진이 없습니다.'));
+      `<p class="body-text">${esc(album.description)}</p>`+(photos.length?`<div class="grid">${photos.map(p=>`<figure class="card">${mediaView(p)}<figcaption class="photo-caption">${esc(p.caption)}</figcaption></figure>`).join('')}</div>`:empty('등록된 사진·동영상이 없습니다.'));
     return;
   }
   const cat=params.get('category')||'',offset=Math.max(0,Number(params.get('page'))||0)*24;
-  let query=client.from('albums').select('*,album_photos(path,caption)',{count:'exact'}).eq('published',true).eq('album_photos.active',true).order('sort_order',{referencedTable:'album_photos'}).limit(1,{referencedTable:'album_photos'}).order('event_date',{ascending:false}).range(offset,offset+23);
+  // '*' keeps existing photo albums readable before the optional video migration is applied.
+  let query=client.from('albums').select('*,album_photos(*)',{count:'exact'}).eq('published',true).eq('album_photos.active',true).order('sort_order',{referencedTable:'album_photos'}).limit(1,{referencedTable:'album_photos'}).order('event_date',{ascending:false}).range(offset,offset+23);
   if(cat)query=query.eq('category',cat);
   const {data,error,count}=await query;if(error)throw error;
-  view.innerHTML=heading('활동 갤러리','제작부터 비행까지, 함께한 활동을 모았습니다.',manager('gallery'))+
+  view.innerHTML=heading('활동 갤러리','제작부터 비행까지, 사진과 영상으로 함께한 활동을 모았습니다.',manager('gallery'))+
     `<form class="toolbar" method="get">${select('category','활동 분류',[['','전체'],...albumCategories],cat)}<button type="submit">보기</button></form>`+
-    (data.length?`<div class="grid">${data.map(a=>`<article class="card"><a href="?id=${a.id}">${a.album_photos?.[0]?`<img class="album-cover" src="${esc(photoUrl(a.album_photos[0].path))}" alt="${esc(a.album_photos[0].caption)}" loading="lazy">`:'<div class="no-photo">사진 준비 중</div>'}<div class="card-body"><span class="tag">${esc(a.category)}</span><h2>${esc(a.title)}</h2><p class="small">${esc(a.event_date)}</p><p>${esc(a.description.slice(0,150))}</p></div></a></article>`).join('')}</div>`:empty('공개된 앨범이 없습니다.'))+pager(count);
+    (data.length?`<div class="grid">${data.map(a=>`<article class="card"><a href="?id=${a.id}">${a.album_photos?.[0]?mediaView(a.album_photos[0],true):'<div class="no-photo">사진·영상 준비 중</div>'}<div class="card-body"><span class="tag">${esc(a.category)}</span><h2>${esc(a.title)}</h2><p class="small">${esc(a.event_date)}</p><p>${esc(a.description.slice(0,150))}</p></div></a></article>`).join('')}</div>`:empty('공개된 앨범이 없습니다.'))+pager(count);
 }
+
 async function board() {
   if(id)return detail();
   const cat=params.get('category')||'',scope=params.get('scope')||'public',q=params.get('q')||'',offset=Math.max(0,Number(params.get('page'))||0)*24;
