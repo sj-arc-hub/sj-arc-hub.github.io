@@ -8,6 +8,13 @@ SJ-ARC 동아리 공식 사이트 (GitHub Pages · sj-arc.org)
 - `assets/` 로고 · 사진
 - 이전 Notion 연동 자료: `notion-setup.md`, `notion-proxy/worker.js` (새 화면은 사용하지 않음)
 
+## 밝은 디자인 · 홈페이지 문구 편집
+
+- 홈과 커뮤니티 화면에 따뜻한 흰색·초록색 디자인 및 새 A·비행 궤적 로고를 적용했습니다.
+- `edit-home.html`: 운영진이 홈페이지 문구·가입 링크를 미리보고 저장합니다. HTML 수정·재배포 없이 반영됩니다.
+- 최초 서버 연결: `supabase/005-site-copy.sql`. 사용 방법: [`home-editing.md`](home-editing.md).
+- 홈페이지 스타일 수정 후 `npm run build:styles`; 일반 문구 편집에는 빌드가 필요 없습니다.
+
 ## Supabase 전환 · 1단계
 
 - 설정 순서: [`supabase-setup.md`](supabase-setup.md)

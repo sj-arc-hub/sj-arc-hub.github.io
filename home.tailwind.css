@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer base {
+  body{margin:0;background:#FAFBF7;color:#203C30;font-family:'Pretendard Variable',Pretendard,system-ui,sans-serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  .font-mono{font-family:'IBM Plex Mono',ui-monospace,monospace}
+  [data-copy]{white-space:pre-line;overflow-wrap:anywhere}
+  a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #236344;outline-offset:4px}
+  .skip-link{position:absolute;left:16px;top:-100px;padding:12px 20px;background:#fff;z-index:100}
+  .skip-link:focus{top:12px}
+  sjarc-hero{display:block;min-height:230px}
+  @media(prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important}}
+  @media(max-width:767px){p.text-\[15px\],p.text-\[14px\]{font-size:16px}h1{word-break:keep-all}header details>summary::-webkit-details-marker{display:none}}
+}

@@ -7,7 +7,10 @@ class HeroPhoto extends HTMLElement {
   connectedCallback() {
     if (this.started) return;
     this.started = true;
-    this.style.cssText = 'display:block;width:100%;height:100%;overflow:hidden;border-radius:18px;background:#1f262e;border:1px solid rgba(255,255,255,.12)';
+    this.light = this.getAttribute('variant') === 'light';
+    this.style.cssText = this.light
+      ? 'display:block;width:100%;overflow:hidden;border-radius:16px;background:#edf3e8;color:#5d6c60'
+      : 'display:block;width:100%;height:100%;overflow:hidden;border-radius:18px;background:#1f262e;border:1px solid rgba(255,255,255,.12)';
     this.setAttribute('aria-busy', 'true');
     this.showPlaceholder('활동 사진을 불러오는 중입니다.');
     this.loadPhoto();
@@ -15,7 +18,7 @@ class HeroPhoto extends HTMLElement {
   showPlaceholder(text) {
     const message = document.createElement('div');
     message.textContent = text;
-    message.style.cssText = 'height:100%;min-height:260px;display:flex;align-items:center;justify-content:center;padding:24px;box-sizing:border-box;color:#9aa6b5;text-align:center;font-size:14px';
+    message.style.cssText = `height:100%;min-height:260px;display:flex;align-items:center;justify-content:center;padding:24px;box-sizing:border-box;color:${this.light?'#5d6c60':'#9aa6b5'};text-align:center;font-size:16px`;
     this.view.replaceChildren(message);
   }
   async loadPhoto() {
@@ -28,7 +31,7 @@ class HeroPhoto extends HTMLElement {
       photo.alt = data.hero_alt;
       photo.decoding = 'async';
       photo.fetchPriority = 'high';
-      photo.style.cssText = 'display:block;width:100%;height:100%;object-fit:cover';
+      photo.style.cssText = this.light ? 'display:block;width:100%;height:auto' : 'display:block;width:100%;height:100%;object-fit:cover';
       photo.src = url;
       await photo.decode();
       if (this.isConnected) this.view.replaceChildren(photo);
