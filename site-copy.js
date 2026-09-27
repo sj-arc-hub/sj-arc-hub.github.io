@@ -1,11 +1,12 @@
-import {copyFields} from './site-copy-schema.js';
+import {copyFields} from './site-copy-schema.js?v=20260927b';
 export {copyFields};
 const definitions=new Map(copyFields.map(field=>[field.key,field]));
 export const defaultCopy=Object.freeze(Object.fromEntries(copyFields.map(field=>[field.key,field.default])));
 export function validCopyValue(field,value){
   if(typeof value!=='string'||!value.trim()||[...value].length>field.max)return false;
   if(/[\u0000-\u0008\u000b\u000c\u000e-\u001f\u007f]/.test(value))return false;
-  if(field.type==='url'){
+  if(field.type==='contact'&&/^mailto:[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/.test(value))return true;
+  if(field.type==='url'||field.type==='contact'){
     if(!/^https:\/\/[^/?#\s@]+(?:[/?#][^\s]*)?$/.test(value))return false;
     try{const url=new URL(value);return url.protocol==='https:'&&!url.username&&!url.password&&!!url.hostname;}catch{return false;}
   }
@@ -27,7 +28,7 @@ export function applyCopy(root,input){
     const key=element.dataset.copy;if(definitions.has(key))element.textContent=values[key];
   }
   for(const element of root.querySelectorAll('[data-copy-link]')){
-    const key=element.dataset.copyLink;if(definitions.get(key)?.type==='url')element.setAttribute('href',values[key]);
+    const key=element.dataset.copyLink;if(['url','contact'].includes(definitions.get(key)?.type))element.setAttribute('href',values[key]);
   }
   return values;
 }

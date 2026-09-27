@@ -1,4 +1,3 @@
-// Editable public homepage content. Field structure is shared by the editor and renderer.
 export const copyFields = [
   {
     "key": "hero.eyebrow",
@@ -30,7 +29,7 @@ export const copyFields = [
     "group": "첫 화면",
     "type": "text",
     "max": 40,
-    "default": "동아리 가입 신청"
+    "default": "가입 문의하기"
   },
   {
     "key": "hero.galleryLabel",
@@ -78,7 +77,7 @@ export const copyFields = [
     "group": "동아리 소개",
     "type": "text",
     "max": 80,
-    "default": "격주 토요일 정기모임"
+    "default": "월 1회 정기모임"
   },
   {
     "key": "intro.meet.description",
@@ -86,7 +85,7 @@ export const copyFields = [
     "group": "동아리 소개",
     "type": "text",
     "max": 500,
-    "default": "무방관에서 모여 실력을 다지고, 광나루 드론 공원에서 비행을 실습합니다."
+    "default": "매달 한 번 함께 모입니다. 자세한 일정과 장소는 카카오톡방에서 안내합니다."
   },
   {
     "key": "activities.eyebrow",
@@ -102,7 +101,7 @@ export const copyFields = [
     "group": "주요 활동",
     "type": "text",
     "max": 100,
-    "default": "토요일마다, 한 걸음 더."
+    "default": "함께 모여, 한 걸음 더."
   },
   {
     "key": "activities.build.title",
@@ -350,7 +349,7 @@ export const copyFields = [
     "group": "가입·모임 안내",
     "type": "text",
     "max": 500,
-    "default": "첫 기체 제작부터 자율비행 프로젝트까지, 함께 배웁니다.\n함께 배우고 성장할 동아리원을 기다립니다."
+    "default": "세종사이버대학교 재학생이라면 함께할 수 있습니다.\n가입은 이메일로 문의해 주세요."
   },
   {
     "key": "join.meeting",
@@ -358,7 +357,7 @@ export const copyFields = [
     "group": "가입·모임 안내",
     "type": "text",
     "max": 500,
-    "default": "세종사이버대학교 무방관\n격주 토요일 오전 10시 정기모임\n(비행 실습: 광나루 드론 공원)"
+    "default": "월 1회 정기모임\n날짜·시간·장소는 카카오톡방 공지"
   },
   {
     "key": "join.fee",
@@ -374,7 +373,7 @@ export const copyFields = [
     "group": "가입·모임 안내",
     "type": "text",
     "max": 300,
-    "default": "※ 활동비·재료비·대회 참가비 포함"
+    "default": "가입 및 회비 안내는 이메일로 문의해 주세요."
   },
   {
     "key": "join.button",
@@ -382,7 +381,7 @@ export const copyFields = [
     "group": "가입·모임 안내",
     "type": "text",
     "max": 40,
-    "default": "가입 신청서 작성하기"
+    "default": "이메일로 가입 문의"
   },
   {
     "key": "footer.description",
@@ -394,11 +393,11 @@ export const copyFields = [
   },
   {
     "key": "links.join",
-    "label": "가입 신청서",
+    "label": "가입 문의 주소",
     "group": "연결 주소",
-    "type": "url",
+    "type": "contact",
     "max": 1500,
-    "default": "https://forms.gle/tCWkZqtovFibKZ4KA"
+    "default": "mailto:chungh@sjcu.ac.kr"
   },
   {
     "key": "links.discord",
@@ -423,5 +422,85 @@ export const copyFields = [
     "type": "url",
     "max": 1500,
     "default": "https://gold-spark-83c.notion.site/SJ-ON-Project-Hub-2df8ca9f94bc804796e1e46807a6a215?pvs=74"
+  },
+  {
+    "key": "faq.learn.question",
+    "label": "질문 · 무엇을 할 수 있나요?",
+    "group": "가입 FAQ",
+    "type": "text",
+    "max": 120,
+    "default": "무엇을 할 수 있나요?"
+  },
+  {
+    "key": "faq.learn.answer",
+    "label": "답변 · 무엇을 할 수 있나요?",
+    "group": "가입 FAQ",
+    "type": "text",
+    "max": 800,
+    "default": "드론 제작·세팅부터 비행 제어 소프트웨어 활용과 기체 연동까지 함께 배웁니다. ROS2 기반 프로그래밍과 자율비행 프로젝트도 단계적으로 경험합니다."
+  },
+  {
+    "key": "faq.who.question",
+    "label": "질문 · 누가 가입할 수 있나요?",
+    "group": "가입 FAQ",
+    "type": "text",
+    "max": 120,
+    "default": "누가 가입할 수 있나요?"
+  },
+  {
+    "key": "faq.who.answer",
+    "label": "답변 · 누가 가입할 수 있나요?",
+    "group": "가입 FAQ",
+    "type": "text",
+    "max": 800,
+    "default": "세종사이버대학교 재학생을 대상으로 합니다."
+  },
+  {
+    "key": "faq.fee.question",
+    "label": "질문 · 회비는 얼마인가요?",
+    "group": "가입 FAQ",
+    "type": "text",
+    "max": 120,
+    "default": "회비는 얼마인가요?"
+  },
+  {
+    "key": "faq.fee.answer",
+    "label": "답변 · 회비는 얼마인가요?",
+    "group": "가입 FAQ",
+    "type": "text",
+    "max": 800,
+    "default": "회비는 학기당 100,000원입니다."
+  },
+  {
+    "key": "faq.join.question",
+    "label": "질문 · 어떻게 가입하나요?",
+    "group": "가입 FAQ",
+    "type": "text",
+    "max": 120,
+    "default": "어떻게 가입하나요?"
+  },
+  {
+    "key": "faq.join.answer",
+    "label": "답변 · 어떻게 가입하나요?",
+    "group": "가입 FAQ",
+    "type": "text",
+    "max": 800,
+    "default": "chungh@sjcu.ac.kr로 가입을 문의해 주세요. 이메일로 가입 절차를 안내해 드립니다."
+  },
+  {
+    "key": "faq.meeting.question",
+    "label": "질문 · 모임은 언제 하나요?",
+    "group": "가입 FAQ",
+    "type": "text",
+    "max": 120,
+    "default": "모임은 언제 하나요?"
+  },
+  {
+    "key": "faq.meeting.answer",
+    "label": "답변 · 모임은 언제 하나요?",
+    "group": "가입 FAQ",
+    "type": "text",
+    "max": 800,
+    "default": "매달 1회 정기모임을 진행합니다. 구체적인 날짜·시간·장소는 카카오톡방에서 공지합니다."
   }
 ];

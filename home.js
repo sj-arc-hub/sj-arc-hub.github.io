@@ -1,4 +1,5 @@
-import {applyCopy,createCopyApi} from './site-copy.js';
+import {applyCopy,createCopyApi} from './site-copy.js?v=20260927b';
+import('./home-community.js?v=20260927b').catch(()=>{});
 const isPreview=new URLSearchParams(location.search).get('copy-preview')==='1'&&window.parent!==window;
 if(!isPreview)try{
   const {client}=await import('./supabase-client.js');

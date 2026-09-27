@@ -59,9 +59,9 @@ test('PostgreSQL limits copy publication to admins, detects stale edits, preserv
         await assert.rejects(db.query("update public.site_copy set content='{}'"),/permission denied/);
       });
     });
-    await t.test('approved defaults publish atomically and stale writes preserve current copy',async()=>{
+    await t.test('legacy HTTPS copy publishes atomically and stale writes preserve current copy',async()=>{
       await as('authenticated',admin,async()=>{
-        const result=(await publish({...defaultCopy,'hero.title':'새 제목\n우리의 비행'},0)).rows[0].result;
+        const result=(await publish({'links.join':'https://example.test/join','hero.title':'새 제목\n우리의 비행'},0)).rows[0].result;
         assert.equal(result.revision,1);assert.equal(result.content['hero.title'],'새 제목\n우리의 비행');
         await assert.rejects(publish({'hero.title':'덮어쓰기 시도'},0),error=>error.code==='40001');
       });

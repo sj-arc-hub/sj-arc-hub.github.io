@@ -3,7 +3,7 @@
 SJ-ARC 동아리 공식 사이트 (GitHub Pages · sj-arc.org)
 
 - `index.html` → `SJ-ARC-Home.dc.html`로 이동
-- 페이지: Home · Team(운영진) · Levels(레벨 현황) · Gallery · Board
+- 페이지: Home · Team(운영진) · Levels(레벨 현황) · Gallery · Projects(결과물) · Board
 - `support.js`, `image-slot.js`는 페이지 런타임 — 지우지 마세요
 - `assets/` 로고 · 사진
 - 이전 Notion 연동 자료: `notion-setup.md`, `notion-proxy/worker.js` (새 화면은 사용하지 않음)
@@ -39,3 +39,10 @@ SJ-ARC 동아리 공식 사이트 (GitHub Pages · sj-arc.org)
 - 기존 프로젝트에서 `supabase/004-gallery-video.sql`을 한 번 실행하고 코드를 배포합니다. 기존 사진은 유지됩니다.
 - 앨범에서 MP4·WebM(파일당 50MB) 업로드 또는 YouTube 링크 추가 후 페이지 안에서 재생합니다.
 - 상세 설정과 파일 형식 안내는 `community-setup.md`의 갤러리 항목을 참고하세요.
+
+## 프로젝트 결과물 · 방문 집계
+
+- 초기 설정: `supabase/006-projects-visits.sql`. 운영 안내: [projects-visits-setup.md](projects-visits-setup.md).
+- 홈에 최근 활동 3개, 프로젝트 영상, 가입 FAQ, 오늘·누적 방문 수를 표시합니다.
+- 콘텐츠 관리 → 프로젝트 결과물에서 YouTube 링크 또는 MP4·WebM 영상을 등록합니다.
+- 방문 집계는 브라우저별 한국 시간 하루 1회이며 실제 사람 수와 다를 수 있습니다.

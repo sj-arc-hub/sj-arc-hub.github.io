@@ -1,4 +1,4 @@
-import {copyFields,normalizeCopy,createCopyApi,copyError} from './site-copy.js';
+import {copyFields,normalizeCopy,createCopyApi,copyError} from './site-copy.js?v=20260927b';
 const el=id=>document.getElementById(id);
 let api,client,site,saved,dirty=false,busy=false,accountId=null,authVersion=0;
 const inputs=new Map();
@@ -15,9 +15,9 @@ function renderFields(){
     const summary=document.createElement('summary');summary.textContent=group;details.append(summary);
     for(const field of copyFields.filter(f=>f.group===group)){
       const label=document.createElement('label');label.textContent=field.label;
-      const input=document.createElement(field.type==='url'?'input':'textarea');input.id='copy-'+field.key.replaceAll('.','-');input.name=field.key;input.maxLength=field.max;input.required=true;
-      if(field.type==='url'){input.type='url';input.pattern='https://.*';input.spellcheck=false;}else input.rows=field.max<=100?2:3;
-      const hint=document.createElement('span');hint.className='field-hint';const help=document.createElement('span');help.textContent=field.type==='url'?'https:// 주소를 입력하세요.':'줄바꿈을 그대로 표시합니다.';const count=document.createElement('span');count.id=input.id+'-count';hint.append(help,count);input.setAttribute('aria-describedby',count.id);label.append(input,hint);details.append(label);inputs.set(field.key,input);
+      const input=document.createElement(field.type==='text'?'textarea':'input');input.id='copy-'+field.key.replaceAll('.','-');input.name=field.key;input.maxLength=field.max;input.required=true;
+      if(field.type==='url'){input.type='url';input.pattern='https://.*';input.spellcheck=false;}else if(field.type==='contact'){input.type='text';input.spellcheck=false;}else input.rows=field.max<=100?2:3;
+      const hint=document.createElement('span');hint.className='field-hint';const help=document.createElement('span');help.textContent=field.type==='contact'?'mailto:이메일 또는 https:// 주소를 입력하세요.':field.type==='url'?'https:// 주소를 입력하세요.':'줄바꿈을 그대로 표시합니다.';const count=document.createElement('span');count.id=input.id+'-count';hint.append(help,count);input.setAttribute('aria-describedby',count.id);label.append(input,hint);details.append(label);inputs.set(field.key,input);
     }
     el('copy-fields').append(details);
   }

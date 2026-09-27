@@ -1,4 +1,4 @@
-import {client,esc,photoUrl} from './community-core.js';
+import {client,esc,photoUrl} from './community-core.js?v=20260927b';
 import {youtubeEmbed} from './gallery-media.js';
 export function videoUrl(path) {
   if(!/^video\/[0-9a-f-]{36}\.(mp4|webm)$/.test(path||''))return '';

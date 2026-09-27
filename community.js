@@ -1,5 +1,6 @@
-import {mediaView} from './gallery-view.js';
-import {client,esc,result,rpc,auth,nav,message,errorText,photoUrl,external,options,field,area,select,empty,categories,albumCategories,statuses,levelLabel,task,modal,attachFile,downloadFile,fail} from './community-core.js';
+import {mediaView} from './gallery-view.js?v=20260927b';
+import {loadVisits,canCountVisit} from './site-visits.js';
+import {client,esc,result,rpc,auth,nav,message,errorText,photoUrl,external,options,field,area,select,empty,categories,albumCategories,statuses,levelLabel,task,modal,attachFile,downloadFile,fail} from './community-core.js?v=20260927b';
 const page=document.body.dataset.page, view=document.getElementById('view'), params=new URLSearchParams(location.search);
 let account={},post=null,files=[],request=null,reviews=[];
 const id=params.get('id');
@@ -12,7 +13,8 @@ function pager(count,size=24) {
 async function team() {
   const people=await result(client.from('team_people').select('*').eq('active',true).order('sort_order').order('name'));
   const cards=list=>list.length?`<div class="team-list">${list.map(p=>`<article class="card person-card">${p.photo_path?`<img class="person-photo" src="${esc(photoUrl(p.photo_path))}" alt="${esc(p.name)}" loading="lazy">`:''}<div class="card-body"><span class="tag">${esc(p.title|| (p.kind==='advisor'?'지도교수':'운영진'))}</span><h2>${esc(p.name)}</h2>${p.department?`<p>${esc(p.department)}</p>`:''}${p.bio?`<p class="body-text">${esc(p.bio)}</p>`:''}${p.website||p.github||p.contact_email?`<div class="actions">${external(p.website,'학과·연구실')}${external(p.github,'GitHub')}${p.contact_email?`<a href="mailto:${esc(p.contact_email)}">이메일</a>`:''}</div>`:''}</div></article>`).join('')}</div>`:empty('등록된 소개가 없습니다.');
-  view.innerHTML=heading('운영진 & 지도교수','함께 만들고, 비행하고, 배우는 사람들',manager('team'))+`<div class="section-label">ADVISOR · 지도교수</div>${cards(people.filter(x=>x.kind==='advisor'))}<div class="section-label">STAFF · 운영진</div>${cards(people.filter(x=>x.kind==='staff'))}`;
+  const advisors=people.filter(x=>x.kind==='advisor');
+  view.innerHTML=heading('운영진 & 지도교수','함께 만들고, 비행하고, 배우는 사람들',manager('team'))+`<div class="section-label">ADVISOR · 지도교수</div>${cards(advisors)}<div class="section-label">MENTOR · 동아리 지도 및 자문</div>${cards(people.filter(x=>x.kind==='mentor'))}<div class="section-label">STAFF · 운영진</div>${cards(people.filter(x=>x.kind==='staff'))}`;
 }
 async function directory() {
   const track=params.get('track')||'',q=params.get('q')||'',offset=Math.max(0,Number(params.get('page'))||0)*50;
@@ -112,3 +114,4 @@ view.addEventListener('click',event=>{
 });
 try { account=await auth();nav(page,account);await ({team,levels:directory,gallery,board}[page])();message(''); }
 catch(e){nav(page,account);message(errorText(e),true);view.innerHTML=empty('내용을 불러오지 못했습니다. 설정을 확인한 후 페이지를 새로고침해 주세요.');}
+if(canCountVisit(location))loadVisits(client).catch(()=>{});

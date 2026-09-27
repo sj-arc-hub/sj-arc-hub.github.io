@@ -1,7 +1,7 @@
 import { client, site } from './supabase-client.js';
 import { preparePhoto } from './image-upload.js';
 import { readableError } from './site-api.js';
-import { createCopyApi } from './site-copy.js';
+import { createCopyApi } from './site-copy.js?v=20260927b';
 export { client };
 export const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 export const today = () => new Date().toLocaleDateString('en-CA');
@@ -55,8 +55,8 @@ export function select(name,label,list,value='') { return `<label>${esc(label)}<
 export function check(name,label,value) { return `<label class="check"><input type="checkbox" name="${name}" ${value?'checked':''}>${esc(label)}</label>`; }
 export function empty(text) { return `<div class="empty">${esc(text)}</div>`; }
 export function nav(page,account) {
-  const links=[['home','홈','SJ-ARC-Home.dc.html'],['team','운영진','SJ-ARC-Team.dc.html'],['levels','레벨 현황','SJ-ARC-Levels.dc.html'],['gallery','갤러리','SJ-ARC-Gallery.dc.html'],['board','게시판','SJ-ARC-Board.dc.html']];
-  document.getElementById('nav').innerHTML=`<a class="brand" href="./SJ-ARC-Home.dc.html"><img src="./assets/sjarc-flight-mark.svg" alt="">SJ-ARC</a><nav aria-label="주 메뉴">${links.map(([key,text,url])=>`<a href="./${url}" ${page===key?'aria-current="page"':''}>${text}</a>`).join('')}<a data-join-link href="https://forms.gle/tCWkZqtovFibKZ4KA" target="_blank" rel="noopener">가입 신청</a><a href="./admin.html">${account.user?'내 계정':'Google 로그인'}</a>${account.admin?'<a class="accent" href="./edit-home.html">홈 문구 편집</a><a class="accent" href="./manage.html">콘텐츠 관리</a>':''}</nav>`;
+  const links=[['home','홈','SJ-ARC-Home.dc.html'],['team','운영진','SJ-ARC-Team.dc.html'],['levels','레벨 현황','SJ-ARC-Levels.dc.html'],['gallery','갤러리','SJ-ARC-Gallery.dc.html'],['projects','프로젝트','SJ-ARC-Projects.dc.html'],['board','게시판','SJ-ARC-Board.dc.html']];
+  document.getElementById('nav').innerHTML=`<a class="brand" href="./SJ-ARC-Home.dc.html"><img src="./assets/sjarc-flight-mark.svg" alt="">SJ-ARC</a><nav aria-label="주 메뉴">${links.map(([key,text,url])=>`<a href="./${url}" ${page===key?'aria-current="page"':''}>${text}</a>`).join('')}<a data-join-link href="mailto:chungh@sjcu.ac.kr" target="_blank" rel="noopener">가입 문의</a><a href="./admin.html">${account.user?'내 계정':'Google 로그인'}</a>${account.admin?'<a class="accent" href="./edit-home.html">홈 문구 편집</a><a class="accent" href="./manage.html">콘텐츠 관리</a>':''}</nav>`;
   createCopyApi(client).read().then(saved=>{const link=document.querySelector('[data-join-link]');if(link)link.href=saved.content['links.join'];}).catch(()=>{});
 }
 export async function uploadPhoto(file,folder) {

@@ -1,10 +1,11 @@
-import {mediaView} from './gallery-view.js';
+import {mediaView} from './gallery-view.js?v=20260927b';
 import {youtubeId} from './gallery-media.js';
 import {prepareVideo} from './video-upload.js';
-import {client,esc,result,rpc,auth,nav,message,errorText,photoUrl,options,field,area,select,check,empty,albumCategories,statuses,levelLabel,task,modal,uploadPhoto,saveRecord,today,fail} from './community-core.js';
+import {projectManagement,projectForm} from './manage-projects.js';
+import {client,esc,result,rpc,auth,nav,message,errorText,photoUrl,options,field,area,select,check,empty,albumCategories,statuses,levelLabel,task,modal,uploadPhoto,saveRecord,today,fail} from './community-core.js?v=20260927b';
 const view=document.getElementById('view'),params=new URLSearchParams(location.search),section=params.get('section')||'team';
 let account={},people=[],members=[],accounts=[],albums=[],photos=[],requests=[],posts=[];
-const tabs=[['team','운영진 소개'],['members','명단·레벨'],['accounts','회원 승인'],['gallery','갤러리'],['reviews','승급 심사'],['posts','게시글 관리']];
+const tabs=[['team','운영진 소개'],['members','명단·레벨'],['accounts','회원 승인'],['gallery','갤러리'],['projects','프로젝트 결과물'],['reviews','승급 심사'],['posts','게시글 관리']];
 const toolbar=(text,action,label='추가')=>`<div class="heading"><div><h2>${text}</h2></div><button class="primary" data-action="${action}">${esc(label)}</button></div>`;
 const table=(heads,rows)=>rows.length?`<div class="table-wrap"><table><thead><tr>${heads.map(h=>`<th>${h}</th>`).join('')}</tr></thead><tbody>${rows.join('')}</tbody></table></div>`:empty('등록된 항목이 없습니다.');
 const editButton=(action,id,label='수정')=>`<button data-action="${action}" data-id="${id}">${label}</button>`;
@@ -12,9 +13,10 @@ function frame(body) {
   view.innerHTML=`<div class="heading"><div><h1>홈페이지 콘텐츠 관리</h1><p>내용을 저장하면 홈페이지에 반영됩니다.</p></div><a href="./admin.html">대표 사진·내 계정</a></div><nav class="tabs" aria-label="관리 메뉴">${tabs.map(([key,label])=>`<a href="?section=${key}" ${section===key?'aria-current="page"':''}>${label}</a>`).join('')}</nav>${body}`;
 }
 async function load() {
+  if(section==='projects'){frame(await projectManagement());return;}
   if(section==='team') {
     people=await result(client.from('team_people').select('*').order('sort_order').order('name'));
-    frame(toolbar('운영진 & 지도교수','person')+table(['이름','구분·직함','공개','관리'],people.map(p=>`<tr><td>${esc(p.name)}</td><td>${esc(p.kind==='advisor'?'지도교수':'운영진')} · ${esc(p.title)}</td><td>${p.active?'공개':'숨김'}</td><td>${editButton('person',p.id)}</td></tr>`)));
+    frame(toolbar('운영진 & 지도교수','person')+table(['이름','구분·직함','공개','관리'],people.map(p=>`<tr><td>${esc(p.name)}</td><td>${esc(({advisor:'지도교수',mentor:'지도·자문',staff:'운영진'}[p.kind]))} · ${esc(p.title)}</td><td>${p.active?'공개':'숨김'}</td><td>${editButton('person',p.id)}</td></tr>`)));
   } else if(section==='members') {
     [members,accounts]=await Promise.all([result(client.from('club_members').select('*').order('name')),rpc('cm_accounts',{})]);
     frame(toolbar('회원 명단·레벨','member','회원 직접 등록')+`<p class="small muted">이름·트랙·레벨·점수·최근 승급일은 공개됩니다. 내부 메모와 Google 계정은 방문자에게 공개하지 않습니다.</p><p>‘회원 직접 등록’에서 이름, 운영/개발, 레벨, 근거를 입력하세요.</p><details><summary>일괄 등록·이전 기록</summary><div class="actions"><button data-action="import-members">명단 일괄 등록</button><button data-action="legacy-backup">이 브라우저의 이전 기록 내려받기</button></div></details>`+
@@ -44,7 +46,7 @@ async function load() {
 async function saved(text='저장했습니다.') {await load();message(text);}
 function personForm(id) {
   const p=people.find(x=>x.id===id);
-  modal(p?'소개 수정':'소개 추가',`<div class="form-grid">${field('name','이름',p?.name,'required maxlength="80"')}${select('kind','구분',[['staff','운영진'],['advisor','지도교수']],p?.kind||'staff')}${field('title','직함',p?.title,'maxlength="80"')}${field('department','학과·소속',p?.department,'maxlength="160"')}<div class="wide">${area('bio','소개',p?.bio,'maxlength="2000"')}</div>${field('email','공개 이메일',p?.contact_email,'type="email" maxlength="254"')}${field('website','학과·연구실 주소',p?.website,'type="url"')}${field('github','GitHub 주소',p?.github,'type="url"')}${field('sort_order','표시 순서',p?.sort_order||0,'type="number" required')}<div class="wide"><label>사진<input type="file" name="photo" accept="image/jpeg,image/png,image/webp,image/avif"></label>${check('remove_photo','기존 사진 비우기',false)}${check('active','홈페이지에 공개',p?.active??true)}</div></div>`,async d=>{
+  modal(p?'소개 수정':'소개 추가',`<div class="form-grid">${field('name','이름',p?.name,'required maxlength="80"')}${select('kind','구분',[['staff','운영진'],['advisor','지도교수'],['mentor','동아리 지도·자문']],p?.kind||'staff')}${field('title','직함',p?.title,'maxlength="80"')}${field('department','학과·소속',p?.department,'maxlength="160"')}<div class="wide">${area('bio','소개',p?.bio,'maxlength="2000"')}</div>${field('email','공개 이메일',p?.contact_email,'type="email" maxlength="254"')}${field('website','학과·연구실 주소',p?.website,'type="url"')}${field('github','GitHub 주소',p?.github,'type="url"')}${field('sort_order','표시 순서',p?.sort_order||0,'type="number" required')}<div class="wide"><label>사진<input type="file" name="photo" accept="image/jpeg,image/png,image/webp,image/avif"></label>${check('remove_photo','기존 사진 비우기',false)}${check('active','홈페이지에 공개',p?.active??true)}</div></div>`,async d=>{
     let path=d.has('remove_photo')?null:p?.photo_path||null;
     const file=d.get('photo');if(file?.size)path=await uploadPhoto(file,'team');
     await saveRecord('team_people',{name:d.get('name').trim(),kind:d.get('kind'),title:d.get('title').trim(),department:d.get('department').trim(),bio:d.get('bio'),contact_email:d.get('email').trim(),website:d.get('website').trim(),github:d.get('github').trim(),sort_order:Number(d.get('sort_order')),active:d.has('active'),photo_path:path},p);await saved();
@@ -102,6 +104,7 @@ function albumForm(id) {
 view.addEventListener('click',event=>{
   const button=event.target.closest('[data-action]');if(!button||!account.admin)return;
   const {action,id}=button.dataset;
+  if(action==='project')return projectForm(id,saved);
   if(action==='person')return personForm(id);
   if(action==='member')return memberForm(id);
   if(action==='account')return accountForm(id);

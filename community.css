@@ -8,3 +8,4 @@ main{max-width:1200px}.header{gap:16px;padding:18px max(20px,calc((100% - 1120px
 
 /* Compact profiles: an absent portrait never reserves an empty image area. */
 .team-list{display:grid;grid-template-columns:1fr;gap:16px}.person-card{display:flex;align-items:flex-start;gap:24px;padding:24px}.person-card .person-photo{width:112px;height:112px;aspect-ratio:1;flex:none;border-radius:14px;object-fit:cover}.person-card .card-body{padding:0;min-width:0;flex:1}.person-card h2{font-size:24px;margin:10px 0 6px}.person-card p{margin:6px 0 0}.person-card .body-text{margin-top:10px}.person-card .actions{margin-top:14px}@media(max-width:600px){.person-card{padding:20px;gap:16px}.person-card .person-photo{width:72px;height:72px;border-radius:10px}.person-card h2{font-size:22px}}
+.project-grid{grid-template-columns:repeat(auto-fit,minmax(min(400px,100%),1fr))}.project-grid .body-text{margin:12px 0}.youtube-load{color:#f4f8f0}
