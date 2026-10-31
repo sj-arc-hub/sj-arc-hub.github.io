@@ -349,7 +349,7 @@ export const copyFields = [
     "group": "가입·모임 안내",
     "type": "text",
     "max": 500,
-    "default": "세종사이버대학교 재학생이라면 함께할 수 있습니다.\n가입은 이메일로 문의해 주세요."
+    "default": "세종사이버대학교 재학생·휴학생·졸업생이라면 함께할 수 있습니다.\n가입은 이메일로 문의해 주세요."
   },
   {
     "key": "join.meeting",
@@ -453,7 +453,7 @@ export const copyFields = [
     "group": "가입 FAQ",
     "type": "text",
     "max": 800,
-    "default": "세종사이버대학교 재학생을 대상으로 합니다."
+    "default": "세종사이버대학교 재학생·휴학생·졸업생 모두 가입할 수 있습니다."
   },
   {
     "key": "faq.fee.question",

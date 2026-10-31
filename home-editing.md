@@ -13,7 +13,7 @@
 
 ## 최초 설치
 
-기존 Supabase 프로젝트에 `supabase/005-site-copy.sql`과 `supabase/006-projects-visits.sql`을 순서대로 한 번 실행합니다. 기존 회원·대표 사진·게시글은 변경하지 않습니다. 재실행해도 저장한 문구를 보존합니다.
+기존 Supabase 프로젝트에 `supabase/005-site-copy.sql`, `supabase/006-projects-visits.sql`, `supabase/007-membership-copy.sql`을 순서대로 한 번 실행합니다. 007은 가입 대상 문구(재학생·휴학생·졸업생)를 공개 문구에 반영합니다. 기존 회원·대표 사진·게시글은 변경하지 않습니다. 재실행해도 저장한 문구를 보존합니다.
 
 공개 문구는 누구나 읽을 수 있고, 서버에서 기존 운영진 권한을 확인한 저장 함수만 수정할 수 있습니다. 직접 테이블 쓰기는 차단됩니다. HTML은 텍스트로 표시하며 연결 주소는 HTTPS를 허용하며, 가입 문의 주소는 단순 mailto 이메일 주소도 지원합니다.
 
